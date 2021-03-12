@@ -1,6 +1,7 @@
 // TODO útfæra proxy virkni
 import express from 'express';
-import { getCachedEarth } from './cache.js';
+import fetch from 'node-fetch';
+// import { getCachedEarth } from './cache.js';
 import { timerStart, timerEnd } from './time.js';
 
 const API_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/';
@@ -12,10 +13,11 @@ router.get('/', async (req, res) => {
   const url = `${API_URL}${type}_${period}.geojson`;
 
   const timer = timerStart();
-  const answer = await getCachedEarth(url);
+  const answer = await fetch(url);
   const elapsed = timerEnd(timer);
 
-  const { data, cached } = answer;
+  const data = await answer.json();
+  const cached = false;
 
   const info = {
     cached,
