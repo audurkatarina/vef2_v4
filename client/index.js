@@ -85,12 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const loading = document.querySelector('.loading');
       loading.classList.toggle('hidden');
-
       const earthquakes = await fetchEarthquakes(type, period);
-
-      // Fjarlægjum loading skilaboð eftir að við höfum sótt gögn
-      // const parent = loading.parentNode;
-      // parent.removeChild(loading);
       loading.classList.toggle('hidden');
 
       displayEarthq(

@@ -100,8 +100,6 @@ export async function getCachedEarth(key) {
   };
   await set(key, responseJSON, 1000);
   return result;
-
-  // client.quit();
 }
 
 getCachedEarth().catch((err) => { console.error(err); });

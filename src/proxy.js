@@ -10,7 +10,6 @@ export const router = express.Router();
 router.get('/', async (req, res) => {
   const { period, type } = req.query;
   const url = `${API_URL}${type}_${period}.geojson`;
-  // const url = new URL(`${period}_${type}.geojson`, API_URL);
 
   const timer = timerStart();
   const answer = await getCachedEarth(url);
