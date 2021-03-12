@@ -1,7 +1,11 @@
+const API_URL = 'http://localhost:3001';
+
 export async function fetchEarthquakes(type, period) {
   // TODO sækja gögn frá proxy þjónustu
+  const url = `${API_URL}/proxy?period=${period}&type=${type}`;
+  let result;
   try {
-    result = await fetch(?);
+    result = await fetch(url);
   } catch (e) {
     console.error('Villa við að sækja', e);
     return null;

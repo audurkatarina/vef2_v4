@@ -19,6 +19,10 @@ app.use(express.static(join(path, '../public')));
 
 // TODO setja upp proxy þjónustu
 // TODO birta index.html skjal
+app.use('/proxy', proxyRouter);
+app.use('/', (req, res) => {
+  res.sendFile(join(path, '../index.html'));
+});
 
 /**
  * Middleware sem sér um 404 villur.
