@@ -1,5 +1,4 @@
-// const API_URL = 'http://localhost:3001';
-const API_URL = window.location.href;
+const API_URL = 'http://localhost:3001';
 
 export async function fetchEarthquakes(type, period) {
   // TODO sækja gögn frá proxy þjónustu
