@@ -13,10 +13,17 @@ router.get('/', async (req, res) => {
   const url = `${API_URL}${type}_${period}.geojson`;
 
   const timer = timerStart();
-  const answer = await fetch(url);
+  let answer;
+  try {
+    answer = await fetch(url);
+  } catch {
+    console.error('Could not get data');
+    return null;
+  }
   const elapsed = timerEnd(timer);
 
-  const data = await answer.json();
+  const responseJSON = await answer.json();
+  const data = responseJSON;
   const cached = false;
 
   const info = {
@@ -27,5 +34,5 @@ router.get('/', async (req, res) => {
     data,
     info,
   };
-  res.json(result);
+  return res.json(result);
 });
