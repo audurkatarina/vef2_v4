@@ -1,5 +1,5 @@
-// const API_URL = 'http://localhost:3001';
-const API_URL = 'https://vef2-v4-a.herokuapp.com';
+const API_URL = 'http://localhost:3001';
+// const API_URL = 'https://vef2-v4-a.herokuapp.com';
 
 export async function fetchEarthquakes(type, period) {
   // TODO sækja gögn frá proxy þjónustu
